@@ -1,0 +1,30 @@
+<div #map class="map-container"></div>
+
+<div class="row">
+  <div class="col-12">
+    <label class="form-label user-select-none">
+      <strong>Zoom:</strong> {{ zoom | number: "2.2-4" }}
+      <strong>- Lng:</strong> [{{ lnglat[0] }}] <strong>, Lat:</strong> [{{
+        lnglat[1]
+      }}]
+    </label>
+    <input
+      type="range"
+      class="form-range"
+      [value]="zoom"
+      min="0"
+      max="18"
+      step="1"
+      (input)="onZoomChange(zoomInput.value)"
+      #zoomInput
+    />
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary px-4" (click)="zoomOut()">
+      <strong>-</strong>
+    </button>
+    <button class="btn btn-primary px-4 float-end" (click)="zoomIn()">
+      <strong>+</strong>
+    </button>
+  </div>
+</div>
